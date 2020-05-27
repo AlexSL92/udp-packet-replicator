@@ -1,0 +1,23 @@
+sudo: true
+language: cpp
+compiler:
+  - gcc
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-8
+install:
+  - "[ $CXX = g++ ] && export CXX=g++-8 || true"
+# Install conan
+  - pip install conan
+# Automatic detection of arch, compiler, etc.
+  - conan user
+script:
+# Download dependencies and build project
+  - mkdir build && cd build
+  - cmake -G "Unix makefiles" -DCMAKE_BUILD_TYPE=Release ..
+  - make
+# Run tests
+  - ctest
