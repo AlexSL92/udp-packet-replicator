@@ -6,11 +6,12 @@ dist: xenial
 
 matrix:
   include:
-    - compiler: gcc
+    - os: linux
+      compiler: gcc
       env:
         - BUILD_TYPE=Release
-  include:
-    - compiler: gcc
+    - os: linux
+      compiler: gcc
       env:
         - BUILD_TYPE=Debug
 
