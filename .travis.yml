@@ -4,24 +4,20 @@ language: python
 python: "3.7"
 dist: xenial
 
+matrix:
+  include:
+    - compiler: gcc
+      env:
+        - BUILD_TYPE=Release
+  include:
+    - compiler: gcc
+      env:
+        - BUILD_TYPE=Debug
+
 install:
 # Install conan
   - pip install conan
   - conan user
-
-matrix:
-  include:
-    - os: linux
-      languaje: cpp
-      compiler: gcc
-      env:
-        - BUILD_TYPE=Release
-  include:
-    - os: linux
-      languaje: cpp
-      compiler: gcc
-      env:
-        - BUILD_TYPE=Debug
 
 script:
 # Download dependencies and build project
