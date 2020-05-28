@@ -28,7 +28,7 @@ matrix:
 
 install:
 # Install conan
-  - pip3 install conan
+  - pip install conan
   - conan user
 
 script:
