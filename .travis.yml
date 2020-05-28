@@ -21,22 +21,6 @@ matrix:
         - BUILD_TYPE=Release
         - GENERATOR="Unix Makefiles"
 
-    - name: "GCC Linux Xenial Release"
-      os: linux
-      dist: xenial
-      compiler: gcc
-      env:
-        - BUILD_TYPE=Release
-        - GENERATOR="Unix Makefiles"
-    
-    - name: "CLang Linux Xenial Release"
-      os: linux
-      dist: xenial
-      compiler: clang
-      env:
-        - BUILD_TYPE=Release
-        - GENERATOR="Unix Makefiles"
-
     - name: "GCC Linux Bionic Debug"
       os: linux
       dist: bionic
@@ -45,17 +29,25 @@ matrix:
         - BUILD_TYPE=Debug
         - GENERATOR="Unix Makefiles"
 
-    - name: "GCC Linux Xenial Debug"
+    - name: "CLang Linux Bionic Debug"
       os: linux
-      dist: xenial
-      compiler: gcc
+      dist: bionic
+      compiler: clang
       env:
         - BUILD_TYPE=Debug
         - GENERATOR="Unix Makefiles"
 
+    - name: "Windows 2015"
+      os: windows
+      language: shell
+      compiler: gcc
+      env:
+        - BUILD_TYPE=Release
+        - GENERATOR="Unix Makefiles"
+
 install:
 # Install and configure conan
-  - sudo pip install conan
+  - pip install conan
   - conan user
 
 script:
