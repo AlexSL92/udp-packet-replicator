@@ -1,5 +1,8 @@
 # UDP Packet Replicator
 
+[![Build Status](https://travis-ci.org/AlexSL92/udp-packet-replicator.svg?branch=master)](https://travis-ci.org/AlexSL92/udp-packet-replicator)
+[![license](https://img.shields.io/github/license/mashape/apistatus.svg)](https://opensource.org/licenses/MIT)
+
 Send network UDP packets to the desired ip address and port.
 
 ## Table of Contents
