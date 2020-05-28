@@ -13,26 +13,10 @@ matrix:
         - BUILD_TYPE=Release
         - GENERATOR="Unix Makefiles"
 
-    - name: "CLang Linux Bionic Release"
-      os: linux
-      dist: bionic
-      compiler: clang
-      env:
-        - BUILD_TYPE=Release
-        - GENERATOR="Unix Makefiles"
-
     - name: "GCC Linux Bionic Debug"
       os: linux
       dist: bionic
       compiler: gcc
-      env:
-        - BUILD_TYPE=Debug
-        - GENERATOR="Unix Makefiles"
-
-    - name: "CLang Linux Bionic Debug"
-      os: linux
-      dist: bionic
-      compiler: clang
       env:
         - BUILD_TYPE=Debug
         - GENERATOR="Unix Makefiles"
