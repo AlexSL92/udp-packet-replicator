@@ -37,14 +37,6 @@ matrix:
         - BUILD_TYPE=Debug
         - GENERATOR="Unix Makefiles"
 
-    - name: "Windows 2015"
-      os: windows
-      language: shell
-      compiler: gcc
-      env:
-        - BUILD_TYPE=Release
-        - GENERATOR="Unix Makefiles"
-
 install:
 # Install and configure conan
   - pip install conan
