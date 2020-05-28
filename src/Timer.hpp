@@ -1,18 +1,10 @@
 #pragma once
 
+#include <asio.hpp>
+
 #include <chrono>
 #include <cstdint>
 #include <stdexcept>
-#include <thread>
-
-/**
-*   @brief Constant data of the Timer class
-*   
-*/
-namespace ConstantTimerData {
-    constexpr uint32_t wait_factor{ 2 }; //!< Sleep time factor
-    constexpr std::chrono::milliseconds wait_condition{ 3 }; //!< Active waiting limit
-}
 
 
 /**
@@ -59,8 +51,9 @@ public:
 
 private:
 
-    std::chrono::microseconds us_; //!< Microseconds of waiting.
-    std::chrono::high_resolution_clock::time_point start_time_; //!< Point where cycle ends.
-    std::chrono::high_resolution_clock::time_point end_time_; //!< Point where cycle ends.
+    std::chrono::milliseconds ms_; //!< Milliseconds of waiting.
+    std::chrono::high_resolution_clock::time_point start_time_; //!< Point where cycle starts.
+    asio::io_context io_; //!< Asio io context
+    asio::high_resolution_timer t_; //!< Asio timer
 
 };
