@@ -1,20 +1,21 @@
 version: 1.0.{build}
-    platform:
-      - x64
 
-    install:
-      - cmd: echo "Downloading conan..."
-      - cmd: set PATH=%PATH%;%PYTHON%/Scripts/
-      - cmd: pip.exe install conan
-      - cmd: conan user
-      - cmd: conan --version
+platform:
+  - x64
 
-    build_script:
-      - cmd: mkdir build
-      - cmd: cd build
-      - cmd: cmake -G "Visual Studio 14 2015 Win64" ..
-      - cmd: cmake --build . --config Release
+install:
+  - cmd: echo "Downloading conan..."
+  - cmd: set PATH=%PATH%;%PYTHON%/Scripts/
+  - cmd: pip.exe install conan
+  - cmd: conan user
+  - cmd: conan --version
 
-    test_script:
-      - cmd: cd bin
-      - cmd: udp-packet-replicator-test.exe
+build_script:
+  - cmd: mkdir build
+  - cmd: cd build
+  - cmd: cmake -G "Visual Studio 14 2015 Win64" ..
+  - cmd: cmake --build . --config Release
+
+test_script:
+  - cmd: cd bin
+  - cmd: udp-packet-replicator-test.exe
