@@ -18,6 +18,7 @@ int main(int argc, char* argv[]) {
       args.GetArgumentSpecifier<std::string>("file") };
     std::cout << "Packet replicator running with the following configuration:" << std::endl;
     std::cout << args << std::endl;
+    std::cout << "Running infinite loop, press ctrl + c to stop sending packets" << std::endl;
     core.RunLoop();
   }
   catch(std::exception const& e) {
