@@ -33,7 +33,7 @@ TEST(timer_test, assert_cycle_time_500_ms) {
     // Define aliases
     using ErrorTimeUnits = std::chrono::milliseconds;
     using CycleTimeUnits = std::chrono::milliseconds;
-    using ClockType = std::chrono::steady_clock;
+    using ClockType = std::chrono::high_resolution_clock;
 
     // Initialize variables
     CycleTimeUnits cycle_time{ 500 };
@@ -56,17 +56,17 @@ TEST(timer_test, assert_cycle_time_500_ms) {
 
 }
 
-TEST(timer_test, assert_cycle_time_20_ms) {
+TEST(timer_test, assert_cycle_time_100_ms) {
 
     // Define aliases
     using ErrorTimeUnits = std::chrono::milliseconds;
     using CycleTimeUnits = std::chrono::milliseconds;
-    using ClockType = std::chrono::steady_clock;
+    using ClockType = std::chrono::high_resolution_clock;
 
     // Initialize variables
-    CycleTimeUnits cycle_time{ 20 };
-    constexpr uint32_t number_of_cycles{ 50 };
-    constexpr ErrorTimeUnits abs_error{ 1 };
+    CycleTimeUnits cycle_time{ 100 };
+    constexpr uint32_t number_of_cycles{ 10 };
+    constexpr ErrorTimeUnits abs_error{ 10 };
 
     // Run cycles
     Timer timer{ cycle_time };
@@ -76,8 +76,7 @@ TEST(timer_test, assert_cycle_time_20_ms) {
         timer.EndCycle();
     }
     auto duration{ std::chrono::duration_cast<CycleTimeUnits>(ClockType::now() - start).count() };
-    auto real_duration{ static_cast<double>(duration) };
-    auto average{ real_duration / number_of_cycles };
+    auto average{ duration / number_of_cycles };
 
     // Asserts
     ASSERT_LE(average, cycle_time.count() + std::chrono::duration_cast<CycleTimeUnits>(abs_error).count());
