@@ -1,42 +1,33 @@
 sudo: required
-language: cpp
+language: python
+python: "3.7"
 
 matrix:
   include:
-    - os: linux
-      dist: xenial
-      addons:
-        apt:
-          packages:
-            - python3
-            - python3-pip
-            - python3-setuptools
+    - name: "Linux Xenial Release"
+      os: linux
+      dist: bionic
       compiler: gcc
       env:
         - BUILD_TYPE=Release
-    - os: linux
-      dist: xenial
-      addons:
-        apt:
-          packages:
-            - python3
-            - python3-pip
-            - python3-setuptools
+        - GENERATOR="Unix Makefiles"
+    - name: "Linux Xenial Debug"
+      os: linux
+      dist: bionic
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
+        - GENERATOR="Unix Makefiles"
 
 install:
-  - python3 -m pip install --upgrade pip
-  - python3 -m pip install wheel
-  - python3 -m pip list --format freeze --outdated | sed 's/=.*//g' | xargs -n1 python3 -m pip install -U
-  - python3 -m pip install conan
+# Install and configure conan
+  - pip install conan
   - conan user
 
 script:
 # Download dependencies and build project
   - mkdir build && cd build
-  - cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
+  - cmake -G $GENERATOR -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
   - cmake --build .
 # Run tests
   - ctest
