@@ -17,5 +17,5 @@ build_script:
   - cmd: cmake --build . --config Release
 
 test_script:
-  - cmd: cd bin
+  - cmd: cd test\Release
   - cmd: udp-packet-replicator-test.exe
