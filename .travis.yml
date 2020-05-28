@@ -10,7 +10,7 @@ matrix:
           sources:
             - deadsnakes
           packages:
-            - python3.7
+            - python3-pip
       compiler: gcc
       env:
         - BUILD_TYPE=Release
@@ -21,14 +21,14 @@ matrix:
           sources:
             - deadsnakes
           packages:
-            - python3.7
+            - python3-pip
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
 
 install:
 # Install conan
-  - pip install conan
+  - pip3 install conan
   - conan user
 
 script:
