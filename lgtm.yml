@@ -1,0 +1,18 @@
+extraction:
+  cpp:
+    prepare:
+      packages: python-pip
+    after_prepare:
+    - pip3 install --local cmake conan
+    - pip3 install --local cmake conan --upgrade
+    - ls ~/.local/bin
+    - apt update && install ca-certificate
+    - export PATH=$PATH:~/.local/bin
+    - conan remote add conan-center https://conan.bintray.com False -f
+    - conan --version
+    - cmake --version
+    - mkdir $LGTM_SRC/build
+    - cd $LGTM_SRC/build
+    - cmake -DCMAKE_BUILD_TYPE=Release ..
+    - cmake --build .
+    - cd -

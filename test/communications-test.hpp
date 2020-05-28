@@ -4,37 +4,11 @@
 
 #include "Communications.hpp"
 
-#include <asio.hpp>
+#include "ClientTester.hpp"
 
 #include <array>
 #include <cstdint>
-#include <iostream>
 #include <vector>
-
-
-class ClientTester {
-
-public:
-
-    ClientTester(uint16_t port) : 
-        io_context_{},
-        socket_{ io_context_, asio::ip::udp::endpoint(asio::ip::udp::v4(), port) } {}
-
-    ~ClientTester() {}
-
-    std::vector<uint8_t> ReceiveData() {
-        std::array<uint8_t, 8192> recv_buf{};
-        asio::ip::udp::endpoint remote_endpoint{};
-        auto recv{ socket_.receive_from(asio::buffer(recv_buf), remote_endpoint) };
-        return std::vector<uint8_t>{ recv_buf.begin(), recv_buf.begin() + recv };
-    }
-
-private:
-
-    asio::io_context io_context_;
-    asio::ip::udp::socket socket_;
-
-};
 
 
 TEST(communications_test, assert_no_throw) {
