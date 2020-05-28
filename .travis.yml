@@ -4,7 +4,7 @@ python: "3.7"
 
 matrix:
   include:
-    - name: "Linux Bionic Release"
+    - name: "GCC Linux Bionic Release"
       os: linux
       dist: bionic
       compiler: gcc
@@ -12,7 +12,7 @@ matrix:
         - BUILD_TYPE=Release
         - GENERATOR="Unix Makefiles"
 
-    - name: "Linux Bionic Debug"
+    - name: "GCC Linux Bionic Debug"
       os: linux
       dist: bionic
       compiler: gcc
@@ -20,9 +20,10 @@ matrix:
         - BUILD_TYPE=Debug
         - GENERATOR="Unix Makefiles"
 
-    - name: "OSX Release"
+    - name: "GCC OSX Release"
       os: osx
-      osx_image: xcode8
+      osx_image: xcode11.2
+      language: shell
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
