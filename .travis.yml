@@ -4,30 +4,31 @@ python: "3.7"
 
 matrix:
   include:
-    - name: "Linux Xenial Release"
+    - name: "Linux Bionic Release"
       os: linux
       dist: bionic
       compiler: gcc
       env:
         - BUILD_TYPE=Release
         - GENERATOR="Unix Makefiles"
-    - name: "Linux Xenial Debug"
+      script:
+        - mkdir build && cd build
+        - cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
+        - cmake --build .
+        - ctest
+    - name: "Linux Bionic Debug"
       os: linux
       dist: bionic
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
-        - GENERATOR="Unix Makefiles"
+      script:
+        - mkdir build && cd build
+        - cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
+        - cmake --build .
+        - ctest
 
 install:
 # Install and configure conan
   - pip install conan
   - conan user
-
-script:
-# Download dependencies and build project
-  - mkdir build && cd build
-  - cmake -G $GENERATOR -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
-  - cmake --build .
-# Run tests
-  - ctest
