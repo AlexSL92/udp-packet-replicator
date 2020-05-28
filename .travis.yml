@@ -28,7 +28,7 @@ matrix:
 
 install:
   - python3 -m pip install --upgrade pip
-  - python3 -m pip pip list --format freeze --outdated | sed 's/=.*//g' | xargs -n1 python3 -m pip pip install -U
+  - python3 -m pip list --format freeze --outdated | sed 's/=.*//g' | xargs -n1 python3 -m pip install -U
   - python3 -m pip install conan
   - conan user
 
