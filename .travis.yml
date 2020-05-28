@@ -7,12 +7,8 @@ matrix:
       dist: xenial
       addons:
         apt:
-          sources:
-            - deadsnakes
           packages:
-            - python3.7
-            - python3-pip
-            - python3-setuptools
+            - python3
       compiler: gcc
       env:
         - BUILD_TYPE=Release
@@ -20,25 +16,15 @@ matrix:
       dist: xenial
       addons:
         apt:
-          sources:
-            - deadsnakes
           packages:
-            - python3.7
-            - python3-pip
-            - python3-setuptools
+            - python3
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
 
-before_install:
-# Install pip and conan
-  - python3.7 -m pip install pip
-  - python3.7 -m pip install --upgrade pip
-  - python3.7 -m pip install wheel
-  - python3.7 -m pip install --upgrade cryptography
-  - python3.7 -m pip install conan
-
 install:
+  - python3 -m pip install --upgrade pip
+  - python3 -m pip install conan
   - conan user
 
 script:
