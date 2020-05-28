@@ -34,6 +34,8 @@ before_install:
 # Install pip and conan
   - python3.7 -m pip install pip
   - python3.7 -m pip install --upgrade pip
+  - python3.7 -m pip install wheel
+  - python3.7 -m pip install --upgrade cryptography
   - python3.7 -m pip install conan
 
 install:
