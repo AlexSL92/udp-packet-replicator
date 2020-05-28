@@ -53,7 +53,7 @@ public:
 private:
 
     std::chrono::microseconds us_; //!< Microseconds of waiting.
-    std::chrono::high_resolution_clock::time_point start_time_; //!< Point where cycle ends.
+    std::chrono::high_resolution_clock::time_point start_time_; //!< Point where cycle starts.
     asio::io_context io_; //!< Asio io context
     std::unique_ptr<asio::steady_timer> t_; //!< Asio timer
 

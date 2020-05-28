@@ -33,7 +33,7 @@ TEST(timer_test, assert_cycle_time_50_ms) {
     // Define aliases
     using ErrorTimeUnits = std::chrono::milliseconds;
     using CycleTimeUnits = std::chrono::milliseconds;
-    using ClockType = std::chrono::high_resolution_clock;
+    using ClockType = std::chrono::steady_clock;
 
     // Initialize variables
     CycleTimeUnits cycle_time{ 50 };
@@ -61,7 +61,7 @@ TEST(timer_test, assert_cycle_time_20_ms) {
     // Define aliases
     using ErrorTimeUnits = std::chrono::milliseconds;
     using CycleTimeUnits = std::chrono::milliseconds;
-    using ClockType = std::chrono::high_resolution_clock;
+    using ClockType = std::chrono::steady_clock;
 
     // Initialize variables
     CycleTimeUnits cycle_time{ 20 };
@@ -88,7 +88,7 @@ TEST(timer_test, get_time_since_init) {
 
     // Define aliases
     using CycleTimeUnits = std::chrono::milliseconds;
-    using ClockType = std::chrono::high_resolution_clock;
+    using ClockType = std::chrono::steady_clock;
 
     // Initialize variables
     constexpr CycleTimeUnits cycle_time{ 1000 };
