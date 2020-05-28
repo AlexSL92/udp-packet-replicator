@@ -12,6 +12,7 @@ matrix:
           packages:
             - python3.7
             - python3-pip
+            - python3-setuptools
       compiler: gcc
       env:
         - BUILD_TYPE=Release
@@ -24,6 +25,7 @@ matrix:
           packages:
             - python3.7
             - python3-pip
+            - python3-setuptools
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
