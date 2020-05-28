@@ -47,12 +47,12 @@ public:
     */
     template<typename T>
     T GetTimeSinceBuild() const {
-        return std::chrono::duration_cast<T>(std::chrono::high_resolution_clock::now() - start_time_);
+        return std::chrono::duration_cast<T>(std::chrono::steady_clock::now() - start_time_);
     }
 
 private:
 
-    std::chrono::microseconds us_; //!< Microseconds of waiting.
+    std::chrono::milliseconds ms_; //!< Milliseconds of waiting.
     std::chrono::high_resolution_clock::time_point start_time_; //!< Point where cycle starts.
     asio::io_context io_; //!< Asio io context
     std::unique_ptr<asio::steady_timer> t_; //!< Asio timer
