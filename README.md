@@ -1,6 +1,7 @@
 # UDP Packet Replicator
 
 [![Build Status](https://travis-ci.org/AlexSL92/udp-packet-replicator.svg?branch=master)](https://travis-ci.org/AlexSL92/udp-packet-replicator)
+[![Build status](https://ci.appveyor.com/api/projects/status/28b0dbs0vqq6gl4a/branch/master?svg=true)](https://ci.appveyor.com/project/AlexSL92/udp-packet-replicator/branch/master)
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/AlexSL92/udp-packet-replicator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AlexSL92/udp-packet-replicator/context:cpp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
