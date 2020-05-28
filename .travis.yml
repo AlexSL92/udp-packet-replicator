@@ -1,0 +1,34 @@
+os: linux
+dist: bionic
+language: python
+python: "3.7"
+
+matrix:
+  include:
+    - name: "GCC Linux Bionic Release"
+      os: linux
+      dist: bionic
+      compiler: gcc
+      env:
+        - BUILD_TYPE=Release
+        - GENERATOR="Unix Makefiles"
+
+    - name: "GCC Linux Bionic Debug"
+      os: linux
+      dist: bionic
+      compiler: gcc
+      env:
+        - BUILD_TYPE=Debug
+        - GENERATOR="Unix Makefiles"
+
+install:
+# Install and configure conan
+  - pip install conan
+  - conan user
+
+script:
+# Build software and run tests
+  - mkdir build && cd build
+  - cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
+  - cmake --build .
+  - ctest

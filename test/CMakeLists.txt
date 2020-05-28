@@ -20,4 +20,6 @@ add_executable(${PROJECT_NAME} ${SRC_TEST_FILES})
 
 # Link libraries from the conan text file
 target_link_libraries(${PROJECT_NAME} CONAN_PKG::asio CONAN_PKG::gtest)
+
+# Add test
 add_test(NAME Test COMMAND udp-packet-replicator-test)

@@ -3,6 +3,7 @@
 #include "arguments-test.hpp"
 #include "communications-test.hpp"
 #include "datafile-test.hpp"
+#include "integration-test.hpp"
 #include "timer-test.hpp"
 
 

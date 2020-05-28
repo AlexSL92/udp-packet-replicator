@@ -25,5 +25,8 @@ include_directories(src)
 # Add main code subdirectory
 add_subdirectory(src)
 
+# Enable tests
+enable_testing()
+
 # Add test code subdirectory
 add_subdirectory(test)
