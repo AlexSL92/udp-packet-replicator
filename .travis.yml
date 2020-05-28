@@ -1,16 +1,23 @@
 sudo: required
-os: linux
-language: python
-python: "3.7"
-dist: xenial
+language: cpp
 
 matrix:
   include:
     - os: linux
+      dist: xenial
+      addons:
+        apt:
+          packages:
+            -python3
       compiler: gcc
       env:
         - BUILD_TYPE=Release
     - os: linux
+      dist: xenial
+      addons:
+        apt:
+          packages:
+            -python3
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
@@ -24,6 +31,6 @@ script:
 # Download dependencies and build project
   - mkdir build && cd build
   - cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
-  - make
+  - cmake --build .
 # Run tests
   - ctest
