@@ -10,7 +10,6 @@ matrix:
           sources:
             - deadsnakes
           packages:
-            - python3-pip
             - python3.7
       compiler: gcc
       env:
@@ -22,7 +21,7 @@ matrix:
           sources:
             - deadsnakes
           packages:
-            - python3-pip
+            - python3.7
       compiler: gcc
       env:
         - BUILD_TYPE=Debug
@@ -30,6 +29,7 @@ matrix:
 before_install:
 # Install pip and conan
   - python3.7 -m pip install pip
+  - python3.7 -m pip install --upgrade pip
   - python3.7 -m pip install conan
 
 install:
