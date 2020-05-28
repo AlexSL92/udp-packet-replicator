@@ -13,7 +13,8 @@ install:
 build_script:
   - cmd: mkdir build
   - cmd: cd build
-  - cmd: cmake -G "Visual Studio 15 2017 Win64" ..
+  - cmd: cmake --help
+  - cmd: cmake -G "Visual Studio 16 2019 Win64" ..
   - cmd: cmake --build . --config Release
 
 test_script:
