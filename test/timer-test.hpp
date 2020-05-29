@@ -35,8 +35,8 @@ TEST(timer_test, assert_cycle_time_500_ms) {
     using ClockType = std::chrono::high_resolution_clock;
 
     // Initialize variables
-    CycleTimeUnits cycle_time{ 500 };
-    constexpr CycleTimeUnits abs_error{ 15 };
+    constexpr CycleTimeUnits cycle_time{ 500 };
+    constexpr CycleTimeUnits abs_error{ 50 };
 
     // Run timer
     Timer timer{ cycle_time };
@@ -52,15 +52,15 @@ TEST(timer_test, assert_cycle_time_500_ms) {
 
 }
 
-TEST(timer_test, assert_cycle_time_100_ms) {
+TEST(timer_test, assert_cycle_time_1000_ms) {
 
     // Define aliases
     using CycleTimeUnits = std::chrono::milliseconds;
     using ClockType = std::chrono::high_resolution_clock;
 
     // Initialize variables
-    CycleTimeUnits cycle_time{ 100 };
-    constexpr CycleTimeUnits abs_error{ 15 };
+    constexpr CycleTimeUnits cycle_time{ 1000 };
+    constexpr CycleTimeUnits abs_error{ 50 };
 
     // Run timer
     Timer timer{ cycle_time };
