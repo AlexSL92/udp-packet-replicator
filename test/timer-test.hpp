@@ -31,56 +31,48 @@ TEST(timer_test, assert_throw) {
 TEST(timer_test, assert_cycle_time_500_ms) {
 
     // Define aliases
-    using ErrorTimeUnits = std::chrono::milliseconds;
     using CycleTimeUnits = std::chrono::milliseconds;
     using ClockType = std::chrono::high_resolution_clock;
 
     // Initialize variables
     CycleTimeUnits cycle_time{ 500 };
-    constexpr uint32_t number_of_cycles{ 10 };
-    constexpr ErrorTimeUnits abs_error{ 10 };
+    constexpr CycleTimeUnits abs_error{ 5 };
 
-    // Run cycles
+    // Run timer
     Timer timer{ cycle_time };
     auto start{ ClockType::now() };
-    for (uint32_t i = 0; i < number_of_cycles; i++) {
-        timer.StartCycle();
-        timer.EndCycle();
-    }
-    auto duration{ std::chrono::duration_cast<CycleTimeUnits>(ClockType::now() - start).count() };
-    auto average{ duration / number_of_cycles };
+    timer.StartCycle();
+    timer.EndCycle();
+    auto finish{ ClockType::now() };
+    auto elapsed{ std::chrono::duration_cast<CycleTimeUnits>(finish - start) };
 
     // Asserts
-    ASSERT_LE(average, cycle_time.count() + std::chrono::duration_cast<CycleTimeUnits>(abs_error).count());
-    ASSERT_GE(average, cycle_time.count() - std::chrono::duration_cast<CycleTimeUnits>(abs_error).count());
+    ASSERT_LE(elapsed.count(), cycle_time.count() + abs_error.count());
+    ASSERT_GE(elapsed.count(), cycle_time.count() - abs_error.count());
 
 }
 
 TEST(timer_test, assert_cycle_time_100_ms) {
 
     // Define aliases
-    using ErrorTimeUnits = std::chrono::milliseconds;
     using CycleTimeUnits = std::chrono::milliseconds;
     using ClockType = std::chrono::high_resolution_clock;
 
     // Initialize variables
     CycleTimeUnits cycle_time{ 100 };
-    constexpr uint32_t number_of_cycles{ 10 };
-    constexpr ErrorTimeUnits abs_error{ 10 };
+    constexpr CycleTimeUnits abs_error{ 1 };
 
-    // Run cycles
+    // Run timer
     Timer timer{ cycle_time };
     auto start{ ClockType::now() };
-    for (uint32_t i = 0; i < number_of_cycles; i++) {
-        timer.StartCycle();
-        timer.EndCycle();
-    }
-    auto duration{ std::chrono::duration_cast<CycleTimeUnits>(ClockType::now() - start).count() };
-    auto average{ duration / number_of_cycles };
+    timer.StartCycle();
+    timer.EndCycle();
+    auto finish{ ClockType::now() };
+    auto elapsed{ std::chrono::duration_cast<CycleTimeUnits>(finish - start) };
 
     // Asserts
-    ASSERT_LE(average, cycle_time.count() + std::chrono::duration_cast<CycleTimeUnits>(abs_error).count());
-    ASSERT_GE(average, cycle_time.count() - std::chrono::duration_cast<CycleTimeUnits>(abs_error).count());
+    ASSERT_LE(elapsed.count(), cycle_time.count() + abs_error.count());
+    ASSERT_GE(elapsed.count(), cycle_time.count() - abs_error.count());
 
 }
 
