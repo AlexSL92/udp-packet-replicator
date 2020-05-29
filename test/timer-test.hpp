@@ -36,7 +36,7 @@ TEST(timer_test, assert_cycle_time_500_ms) {
 
     // Initialize variables
     CycleTimeUnits cycle_time{ 500 };
-    constexpr CycleTimeUnits abs_error{ 5 };
+    constexpr CycleTimeUnits abs_error{ 15 };
 
     // Run timer
     Timer timer{ cycle_time };
@@ -60,7 +60,7 @@ TEST(timer_test, assert_cycle_time_100_ms) {
 
     // Initialize variables
     CycleTimeUnits cycle_time{ 100 };
-    constexpr CycleTimeUnits abs_error{ 1 };
+    constexpr CycleTimeUnits abs_error{ 15 };
 
     // Run timer
     Timer timer{ cycle_time };
