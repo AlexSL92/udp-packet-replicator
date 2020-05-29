@@ -13,6 +13,14 @@ matrix:
         - BUILD_TYPE=Release
         - GENERATOR="Unix Makefiles"
 
+    - name: "GCC OSX Release"
+      os: osx
+      language: minimal
+      compiler: gcc
+      env:
+        - BUILD_TYPE=Release
+        - GENERATOR="Unix Makefiles"
+
     - name: "GCC Linux Bionic Debug"
       os: linux
       dist: bionic
