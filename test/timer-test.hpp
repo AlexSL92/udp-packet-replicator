@@ -28,7 +28,7 @@ TEST(timer_test, assert_throw) {
 
 }
 
-TEST(timer_test, assert_cycle_time_2000_ms) {
+TEST(timer_test, assert_cycle_time_at_least_2000_ms) {
 
     // Define aliases
     using CycleTimeUnits = std::chrono::milliseconds;
@@ -36,7 +36,6 @@ TEST(timer_test, assert_cycle_time_2000_ms) {
 
     // Initialize variables
     constexpr CycleTimeUnits cycle_time{ 2000 };
-    constexpr CycleTimeUnits abs_error{ 100 };
 
     // Run timer
     Timer timer{ cycle_time };
@@ -47,20 +46,18 @@ TEST(timer_test, assert_cycle_time_2000_ms) {
     auto elapsed{ std::chrono::duration_cast<CycleTimeUnits>(finish - start) };
 
     // Asserts
-    ASSERT_LE(elapsed.count(), cycle_time.count() + abs_error.count());
-    ASSERT_GE(elapsed.count(), cycle_time.count() - abs_error.count());
+    ASSERT_GE(elapsed.count(), cycle_time.count());
 
 }
 
-TEST(timer_test, assert_cycle_time_1000_ms) {
+TEST(timer_test, assert_cycle_time_at_least_50_ms) {
 
     // Define aliases
     using CycleTimeUnits = std::chrono::milliseconds;
     using ClockType = std::chrono::high_resolution_clock;
 
     // Initialize variables
-    constexpr CycleTimeUnits cycle_time{ 1000 };
-    constexpr CycleTimeUnits abs_error{ 100 };
+    constexpr CycleTimeUnits cycle_time{ 50 };
 
     // Run timer
     Timer timer{ cycle_time };
@@ -71,8 +68,7 @@ TEST(timer_test, assert_cycle_time_1000_ms) {
     auto elapsed{ std::chrono::duration_cast<CycleTimeUnits>(finish - start) };
 
     // Asserts
-    ASSERT_LE(elapsed.count(), cycle_time.count() + abs_error.count());
-    ASSERT_GE(elapsed.count(), cycle_time.count() - abs_error.count());
+    ASSERT_GE(elapsed.count(), cycle_time.count());
 
 }
 
