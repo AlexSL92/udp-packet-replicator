@@ -15,6 +15,7 @@ matrix:
 
     - name: "GCC OSX Release"
       os: osx
+      osx_image: xcode11.4
       language: minimal
       compiler: gcc
       env:
@@ -31,6 +32,7 @@ matrix:
 
     - name: "GCC OSX Debug"
       os: osx
+      osx_image: xcode11.4
       language: minimal
       compiler: gcc
       env:
