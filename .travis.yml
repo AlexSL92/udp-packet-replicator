@@ -55,6 +55,7 @@ script:
   - cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
   - cmake --build .
   - ctest
+  - cd ..
   - doxygen Doxyfile
 
 deploy:
