@@ -19,6 +19,7 @@ matrix:
         - BUILD_TYPE=Release
         - GENERATOR="Unix Makefiles"
       after_success:
+        # Build documentation
         - cd .. && doxygen Doxyfile
       deploy:
         provider: pages
@@ -55,12 +56,12 @@ matrix:
         - GENERATOR="Unix Makefiles"
 
 install:
-# Install and configure conan
+  # Install and configure conan
   - pip install conan
   - conan user
 
 script:
-# Build software and run tests
+  # Build software and run tests
   - mkdir build && cd build
   - cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
   - cmake --build .
