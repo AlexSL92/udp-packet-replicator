@@ -3,20 +3,30 @@ dist: bionic
 language: python
 python: "3.7"
 
-addons:
-  apt:
-    packages:
-      - doxygen
 
 matrix:
   include:
+
     - name: "GCC Linux Bionic Release"
+      addons:
+        apt:
+          packages:
+            - doxygen
       os: linux
       dist: bionic
       compiler: gcc
       env:
         - BUILD_TYPE=Release
         - GENERATOR="Unix Makefiles"
+      after_success:
+        - cd .. && doxygen Doxyfile
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        local_dir: docs/html
+        github_token: $GH_REPO_TOKEN
+        on:
+          branch: master
 
     - name: "GCC OSX Release"
       os: osx
@@ -55,13 +65,3 @@ script:
   - cmake -G "$GENERATOR" -DCMAKE_BUILD_TYPE=$BUILD_TYPE ..
   - cmake --build .
   - ctest
-  - cd ..
-  - doxygen Doxyfile
-
-deploy:
-  provider: pages
-  skip_cleanup: true
-  local_dir: docs/html
-  github_token: $GH_REPO_TOKEN
-  on:
-    branch: master
