@@ -1,7 +1,13 @@
 version: 1.0.{build}
 
+image: Visual Studio 2017
+
 platform:
   - x64
+
+configuration:
+  - Release
+  - Debug
 
 install:
   - cmd: echo "Downloading conan..."
@@ -13,9 +19,9 @@ install:
 build_script:
   - cmd: mkdir build
   - cmd: cd build
-  - cmd: cmake -G "Visual Studio 14 2015 Win64" ..
-  - cmd: cmake --build . --config Release
+  - cmd: cmake -G "Visual Studio 15 2017 Win64" ..
+  - cmd: cmake --build . --config %CONFIGURATION%
 
 test_script:
-  - cmd: cd test\Release
+  - cmd: cd test\%CONFIGURATION%
   - cmd: udp-packet-replicator-test.exe

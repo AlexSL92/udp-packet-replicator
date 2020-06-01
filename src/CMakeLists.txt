@@ -1,4 +1,4 @@
-cmake_minimum_required (VERSION 3.0.0)
+cmake_minimum_required (VERSION 3.10.0)
 
 # Define the C++14 standard
 set(CMAKE_CXX_STANDARD 14)

@@ -5,7 +5,7 @@
 [![Language grade: C/C++](https://img.shields.io/lgtm/grade/cpp/g/AlexSL92/udp-packet-replicator.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/AlexSL92/udp-packet-replicator/context:cpp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Send network UDP packets to the desired ip address and port.
+Send data stored in a binary file through the network to the desired ip address and port. The data is sent using UDP protocol.
 
 ## Table of Contents
 
@@ -49,9 +49,9 @@ cd udp-packet-replicator && mkdir build && cd build
 ```
 3. Run cmake
 ```sh
-cmake -DCMAKE_BUILD_TYPE={BUILD_TYPE} -G "<generator-name>" ..
+cmake -DCMAKE_BUILD_TYPE=BUILD_TYPE -G "<generator-name>" ..
 ```
-_Being {BUILD_TYPE} = Release / Debug_
+_Being BUILD_TYPE = Release / Debug_
 
 Use cmake --help to get a list of [generators](https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html)
 
