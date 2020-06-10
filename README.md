@@ -28,6 +28,8 @@ The data to be sent has to be stored in a file. The application will read it, se
 
 ## Getting Started
 
+Full documentation of the code can be found [here](https://alexsl92.github.io/udp-packet-replicator/).
+
 To get a local copy of the project and to run it, you can download build it from source with the following steps.
 
 ### Prerequisites
