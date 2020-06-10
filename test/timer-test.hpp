@@ -80,7 +80,7 @@ TEST(timer_test, get_time_since_init) {
 
     // Initialize variables
     constexpr CycleTimeUnits cycle_time{ 1000 };
-    constexpr CycleTimeUnits abs_error{ 1 };
+    constexpr CycleTimeUnits abs_error{ 10 };
     Timer timer{ cycle_time };
     auto end_time{ cycle_time + ClockType::now() };
     auto wait_time{ end_time - ClockType::now() };
