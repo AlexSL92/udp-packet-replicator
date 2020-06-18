@@ -20,3 +20,9 @@ add_executable (${PROJECT_NAME} ${SRC_FILES})
 
 # Link libraries from the conan text file
 target_link_libraries(${PROJECT_NAME} CONAN_PKG::asio)
+
+# Copy the project executable to PROJECT_ROOT/bin
+add_custom_command(TARGET udp-packet-replicator POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E make_directory ${PROJECT_BINARY_DIR}/../../bin   
+    COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:udp-packet-replicator> ${PROJECT_BINARY_DIR}/../../bin/
+)

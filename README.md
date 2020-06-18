@@ -45,23 +45,28 @@ The following software is required together with a proper compiler in order to b
 ```sh
 git clone https://github.com/AlexSL92/udp-packet-replicator.git
 ```
-2. Create _build_ folder inside the repository path
+2. Create a folder named _build_ inside the repository path
 ```sh
 cd udp-packet-replicator && mkdir build && cd build
 ```
-3. Run cmake
+3. Run cmake with the desired [generator](https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html) (check them with `cmake --help`)
 ```sh
-cmake -DCMAKE_BUILD_TYPE=BUILD_TYPE -G "<generator-name>" ..
+cmake -DCMAKE_BUILD_TYPE=Release -G "generator-name" ..
 ```
-_Being BUILD_TYPE = Release / Debug_
+or
+```sh
+cmake -DCMAKE_BUILD_TYPE=Debug -G "generator-name" ..
+```
+4. Run cmake build
+```sh
+cmake --build .
+```
 
-Use cmake --help to get a list of [generators](https://cmake.org/cmake/help/v3.0/manual/cmake-generators.7.html)
-
-4. Build the project using the specified generator
+This last command will generate a _bin_ folder inside the root directory of the application (udp-packet-replicator/bin) with the executable inside it.
 
 ## Usage
 
-Run the software using the following command.
+Run the software using the following command inside the _udp-packet-replicator/bin_ folder.
 ```sh
 ./udp-packet-replicator -ip ADDRESS -port PORT -ms TIME -file PATH
 ```
