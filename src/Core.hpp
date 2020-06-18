@@ -29,11 +29,6 @@ public:
     Core(std::string ip, uint16_t port, uint32_t ms, std::string path);
 
     /**
-    *   @brief Destroy the Core object
-    */
-    ~Core();
-
-    /**
     *   @brief Run the core of the application in an infinite loop
     */
     void RunLoop(std::atomic<bool> const& run_flag = true);

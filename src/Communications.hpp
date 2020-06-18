@@ -22,11 +22,6 @@ public:
     Communications(std::string const& ip, uint16_t port);
 
     /**
-    *   @brief Destroy the Communications object
-    */
-    ~Communications();
-
-    /**
     *   @brief Send packet of data
     *   
     *   @param data Packet to be sent

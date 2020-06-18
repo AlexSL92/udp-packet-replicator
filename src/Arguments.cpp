@@ -5,8 +5,6 @@ Arguments::Arguments(std::vector<std::string> const& args) : args_{} {
     BuildMap(args);
 }
 
-Arguments::~Arguments() {}
-
 bool Arguments::CheckArgument(std::string const& key) const {
     return args_.find(key) != args_.end();
 }

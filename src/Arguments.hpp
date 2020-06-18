@@ -23,11 +23,6 @@ public:
     Arguments(std::vector<std::string> const& args);
 
     /**
-    *   @brief Destroy the Arguments object
-    */
-    ~Arguments();
-
-    /**
     *   @brief Check if a certain argument exists in the map
     *   
     *   @param key Argument to search

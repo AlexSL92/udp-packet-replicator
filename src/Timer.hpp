@@ -24,11 +24,6 @@ public:
     Timer(std::chrono::duration<float> const& s);
 
     /**
-    *   @brief Destroy the Timer object
-    */
-    ~Timer();
-
-    /**
     *   @brief Start of the cycle
     */
     void StartCycle();

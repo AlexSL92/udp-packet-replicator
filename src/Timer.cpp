@@ -9,8 +9,6 @@ Timer::Timer(std::chrono::duration<float> const& s) :
     if (ms_.count() == 0) { throw std::runtime_error("Timer initialized with null value"); }
 }
 
-Timer::~Timer() {}
-
 void Timer::StartCycle() {
     t_.expires_after(ms_);
 }

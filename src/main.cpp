@@ -22,8 +22,9 @@ int main(int argc, char* argv[]) {
     core.RunLoop();
   }
   catch(std::exception const& e) {
-    std::cout << e.what() << std::endl;
-    std::this_thread::sleep_for(std::chrono::seconds(2));
+    std::cerr << e.what() << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(1));
+    return -1;
   }
   return 0;
 }

@@ -23,11 +23,6 @@ public:
     DataFile(std::string const& path);
 
     /**
-    *   @brief Destroy the Data File object
-    */
-    ~DataFile();
-
-    /**
     *   @brief Get the file as binary data
     *   
     *   @return std::vector<uint8_t> File as binary data
